@@ -1,5 +1,7 @@
 package Exercises;
 
+import java.util.Arrays;
+
 public class twoSum {
 
 
@@ -42,11 +44,37 @@ public class twoSum {
         System.out.println("not found");
     }
 
+//    public static int[] sort(int[] a) {
+//        int i = 0;
+//        int j = a.length - 1;
+//
+//        while (i < j) {
+//            if (a[i] < a[j] && a[i] >= 0){
+//                j--;
+//            } else if (a[i] < a[j]) {
+//                i++;
+//            } else if (a[i] > a[j]) {
+//                swap(a, i, j);
+//                j--;
+//            }
+//        }
+//        return a;
+//    }
+//
+//    public static void swap(int[] a, int i, int j) {
+//        int temp = a[i];
+//        a[i] = a[j];
+//        a[j] = temp;
+//    }
+
 
     public static void main(String[] args) {
         int[] a = {3, 7, 8, 11, 15, 20, 24};
         int key = 23;
         trovaIndici(a,key);
         twoSum(a,key);
+//        int[] a = {5, 7, -2, -9, 2, -4, 3, 1, -3, -6};
+//        System.out.print(Arrays.toString(sort(a)));
+
     }
 }
