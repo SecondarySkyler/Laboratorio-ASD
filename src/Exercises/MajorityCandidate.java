@@ -5,6 +5,11 @@ import java.util.Scanner;
 
 public class MajorityCandidate {
 
+    /**
+     * Method to find the max value in an array
+     * @param a the array to scan
+     * @return the max so for every index max > a[i]
+     */
     public static int extractMax (int[] a) {
         int max = 0;
         for (int i = 0; i < a.length; i++) {
@@ -15,6 +20,11 @@ public class MajorityCandidate {
         return max;
     }
 
+    /**
+     * Method that use a piece of algorithm from Counting Sort, used to search for a majority candidate in an array.
+     * a[i] is a majority candidate if the number of the occurrences of a[i] is >= (a.length / 2) + 1
+     * @param a the majority candidate if it exist, else "No majority"
+     */
     public static void countingSort(int[]  a) {
         int max = extractMax(a);
         int[] c = new int[max + 1];
