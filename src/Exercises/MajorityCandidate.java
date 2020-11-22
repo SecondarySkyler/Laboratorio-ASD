@@ -23,7 +23,7 @@ public class MajorityCandidate {
     /**
      * Method that use a piece of algorithm from Counting Sort, used to search for a majority candidate in an array.
      * a[i] is a majority candidate if the number of the occurrences of a[i] is >= (a.length / 2) + 1
-     * @param a the majority candidate if it exist, else "No majority"
+     * @param a the array where to search for the majority candidate
      */
     public static void countingSort(int[]  a) {
         int max = extractMax(a);
