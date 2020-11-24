@@ -29,6 +29,12 @@ public class MaxDifference {
         return result;
     }
 
+    /**
+     * This algorithm is effective only if all the elements of the array are lower
+     * than the dimension of the array;
+     * Otherwise the algorithm will take O(n + max) and if max is extremely high
+     * This will take a time complexity of O(max)
+     */
     public static Integer[] maxDifference(Integer[] v) {
         int max = 0;
         Integer [] result = new Integer[2];
