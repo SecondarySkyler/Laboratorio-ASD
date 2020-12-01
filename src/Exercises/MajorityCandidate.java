@@ -5,53 +5,86 @@ import java.util.Scanner;
 
 public class MajorityCandidate {
 
-    /**
-     * Method to find the max value in an array
-     * @param a the array to scan
-     * @return the max so for every index max > a[i]
-     */
-    public static int extractMax (int[] a) {
-        int max = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] > max) {
-                max = a[i];
+//    /**
+//     * Method to find the max value in an array
+//     * @param a the array to scan
+//     * @return the max so for every index max > a[i]
+//     */
+//    public static int extractMax (int[] a) {
+//        int max = 0;
+//        for (int i = 0; i < a.length; i++) {
+//            if (a[i] > max) {
+//                max = a[i];
+//            }
+//        }
+//        return max;
+//    }
+//
+//    /**
+//     * Method that use a piece of algorithm from Counting Sort, used to search for a majority candidate in an array.
+//     * a[i] is a majority candidate if the number of the occurrences of a[i] is >= (a.length / 2) + 1
+//     * @param a the array where to search for the majority candidate
+//     */
+//    public static void countingSort(int[]  a) {
+//        int max = extractMax(a);
+//        int[] c = new int[max + 1];
+//        boolean found = false;
+//
+//        for (int i = 0; i < c.length; i++) {
+//            c[i] = 0;
+//        }
+//
+//        // Array c gets populate by the occurrences of elements of a
+//        for (int i = 0; i < a.length; i++) {
+//            c[a[i]] = c[a[i]] + 1;
+//        }
+//
+//        for (int i = 0; i < c.length; i++) {
+//            int midA = (a.length / 2) + 1;
+//            if (c[i] >= midA) {
+//                System.out.print(i);
+//                found = true;
+//            }
+//        }
+//        if (!found){
+//            System.out.print("No majority");
+//        }
+//
+//
+//    }
+
+
+    private static int findCandidate(int[] a) {
+        int majority = 0;
+        int count = 1;
+
+        for (int i = 1; i < a.length; i++) {
+            if (a[majority] == a[i]) {
+                count++;
+            } else {
+                count--;
+                if (count == 0){
+                    majority = i;
+                    count = 1;
+                }
             }
         }
-        return max;
+        return a[majority];
     }
 
-    /**
-     * Method that use a piece of algorithm from Counting Sort, used to search for a majority candidate in an array.
-     * a[i] is a majority candidate if the number of the occurrences of a[i] is >= (a.length / 2) + 1
-     * @param a the array where to search for the majority candidate
-     */
-    public static void countingSort(int[]  a) {
-        int max = extractMax(a);
-        int[] c = new int[max + 1];
-        boolean found = false;
-
-        for (int i = 0; i < c.length; i++) {
-            c[i] = 0;
-        }
-
-        // Array c gets populate by the occurrences of elements of a
+    public static void Majority(int[] a) {
+        int candidate = findCandidate(a);
+        int count = 0;
         for (int i = 0; i < a.length; i++) {
-            c[a[i]] = c[a[i]] + 1;
+            if (a[i] == candidate)
+                count++;
         }
-
-        for (int i = 0; i < c.length; i++) {
-            int midA = (a.length / 2) + 1;
-            if (c[i] >= midA) {
-                System.out.print(i);
-                found = true;
-            }
-        }
-        if (!found){
+        if (count > a.length / 2)
+            System.out.print(candidate);
+        else
             System.out.print("No majority");
-        }
-
-
     }
+
 
 
     // requires an input Scanner object (e.g. in = new Scanner(System.in); )
@@ -80,6 +113,7 @@ public class MajorityCandidate {
             resultScan[i] = scanned.get(i).intValue();
         }
 
-        countingSort(resultScan);
+        Majority(resultScan);
+
     }
 }
