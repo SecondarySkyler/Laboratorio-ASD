@@ -18,7 +18,7 @@ public class FractionalPeriod {
 //        Scanner in = new Scanner(System.in);
 //        String scanned = in.nextLine(); //abcabcab
         String s = "abcabcab";
-        System.out.print();
+//        System.out.print();
 
     }
 
